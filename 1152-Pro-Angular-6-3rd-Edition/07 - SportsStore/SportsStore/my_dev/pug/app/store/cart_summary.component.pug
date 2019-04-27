@@ -1,0 +1,10 @@
+.float-right
+  small
+    | Your cart 
+    span(*ngIf='cart.itemCount > 0')
+      | {{ cart.itemCount }} item(s) 
+      | {{ cart.cartPrice | currency:"USD":"symbol":"2.2-2" }}
+    span(*ngIf='cart.itemCount == 0') empty
+  button.btn.btn-sm.bg-dark.text-white('[disabled]'='cart.itemCount == 0', routerLink='/cart')
+    i.fa.fa-shopping-cart
+      

@@ -1,0 +1,18 @@
+h3.bg-primary.p-1.text-white {{getName()}}'s To Do List 
+.my-1
+  input.form-control('#todoText')/
+  button.btn.btn-primary.mt-1('(click)'='addItem(todoText.value)') Add
+table.table.table-striped.table-bordered
+  thead
+    tr
+      th
+      th Description
+      th Done
+  tbody
+    tr(*ngFor='let item of getTodoItems(); let i = index')
+      td {{ i + 1}}
+      td {{ item.action }}
+      td: input(type="checkbox", '[(ngModel)]'='item.done')
+      td('[ngSwitch]'='item.done')
+        span(*ngSwitchCase='true') Yes
+        span(*ngSwitchDefault) No

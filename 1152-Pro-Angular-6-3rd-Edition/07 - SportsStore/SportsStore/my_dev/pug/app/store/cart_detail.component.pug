@@ -1,0 +1,33 @@
+.container-fluid
+  .row
+    .col.bg-dark.text-white
+      a.navbar-brand SPORTS STORE
+  .row
+    .col.mt-2
+      h2.text-center Your Cart
+      table.table.table-bordered.table-striped.p-2
+        thead
+          tr 
+            th Quantity
+            th Product
+            th.text-right Price
+            th.text-right Subtotal
+        tbody
+          tr(*ngIf='cart.lines.size == 0')
+            td.text-center(colspan=4) Your cart is Empty
+          tr(*ngFor!='let e of cart.lines | keyvalue')
+            td: input.form-control-sm(type="number", style={width:'5em'}, '[value]'='e.value.quantity', '(change)'='cart.setQuantity(e.value.product, $event.target.value)')/
+            td {{e.value.product.name}}
+            td.text-right {{e.value.product.price | currency:"USD":true:"2.2-2"}}
+            td.text-right {{(e.value.lineTotal) | currency:"USD":true:"2.2-2" }}
+            td.text-center 
+              button.btn.btn-sm.btn-danger('(click)'='cart.removeLine(e.value.product.id)') Remove
+        tfoot
+          tr 
+            td.text-right(colspan=3) Total: 
+            td.text-right {{cart.cartPrice | currency:"USD":"symbol":"2.2-2"}}
+  .row
+    .col
+      .text-center
+        button.btn.btn-primary.m-1(routerLink='/store') Continue Shopping
+        button.btn.btn-secondary.m-1(routerLink='/checkout', '[disabled]'='cart.lines.size == 0') Checkout

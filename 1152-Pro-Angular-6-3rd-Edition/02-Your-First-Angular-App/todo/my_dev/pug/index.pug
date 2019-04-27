@@ -1,4 +1,34 @@
-extends boilerplate/skeleton.pug
+doctype html
+html(lang="en")
+ head
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-block body_content
- h1 hello
+   title ToDo
+ body.m-1.p-1
+   h3.bg-primary.text-white.p-3 Adam's ToDo List
+   .my-1
+     input.form-control/
+     button.btn.btn-primary.mt-1 Add
+
+   table.table.table-striped.table-bordered
+     thead
+       tr
+         th Description
+         th Done
+     tbody
+       - 
+         data = [
+           ['Buy Flowers', false],
+           ['Get Shoes', false],
+           ['Collect Tickets', true],
+           ['Call Joe', false],
+          ]
+       each val in data
+         tr
+           td=val[0]
+           td=val[1] ? 'Yes' : 'No'
+         
+       
+     
+   

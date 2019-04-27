@@ -1,0 +1,25 @@
+.container-fluid
+  .row
+    .col.bg-dark.text-white
+      a.navbar-brand SPORTS STORE
+      cart-summary
+  .row
+    .col-3.p-2
+      button.btn.btn-block.btn-outline-primary('(click)'='changeCategory()') Home
+      button.btn.btn-outline-primary.btn-block(*ngFor='let cat of categories' '[class.active]'='cat == selectedCategory', '(click)'='changeCategory(cat)') {{cat}}
+    .col-9.p-2
+      .card.m-1.p-1.bg-light(*ngFor='let product of products')
+        h4
+          | {{product.name}}
+          span.badge.badge-pill.badge-primary.float-right {{ product.price | currency:"USD":"symbol":"2.2-2" }}
+        .card-text.bg-white.p-1 
+          | {{product.description}}
+          button.btn.btn-success.btn-sm.float-right('(click)'='addProductToCart(product)') Add to Cart
+
+      .form-inline.float-left.mr-1
+        select.form-control('[value]'='productsPerPage', '(change)'='changePageSize($event.target.value)' )
+          each val in [3,4,6,8]
+            option(value=val)= val + ' per Page'
+      .btn-group.float-right
+        button.btn.btn-outline-primary(*counter='let page of pageCount', '(click)'='changePage(page)', '[class.active]'='page==selectedPage' ) {{page}}
+    

@@ -1,0 +1,31 @@
+.container-fluid
+  .row
+    .col.bg-dark.text-white
+      a.navbar-brand SPORTS STORE
+.m-2.text-center(*ngIf='orderSent')
+  h2 Thanks!
+  p Thanks for placing your order.
+  p We'll ship your goods as soon as possible.
+  button.btn.btn-primary(routerLink='/store') Return to store
+form.m-2(*ngIf='!orderSent', '#form'='ngForm', novalidate, '(ngSubmit)'='submitOrder(form)')
+  mixin field(name, label_name,  desp)
+    .form-group
+      label= label_name
+      - atr_temp = {}
+      - atr_temp['#'+name] = 'ngModel';
+      input.form-control(type="text", name=name, '[(ngModel)]'='order.'+name, required)&attributes(atr_temp)
+      span.text-danger(*ngIf!=`submitted && ${name}.invalid`)= desp
+
+  mixin field2(name)
+    +field(name.toLowerCase(), name, 'Please Enter your '+name)
+
+  +field2('Name')  
+  +field2('Address')  
+  +field2('City')  
+  +field2('State')  
+  +field('zip', 'Zip/Postal Code', 'Please enter your Zip/Postal Code')  
+  +field2('Country')
+  .text-center
+    button.btn.btn-secondary.m-1(routerLink='/cart') Back
+    button.btn.btn-primary.m-1(type="submit") Complete Order
+

@@ -2,21 +2,19 @@ const chalk = require('chalk');
 const Paths = require('path');
 
 const dist_dir = "./src/";
-process.env.dist_dir = dist_dir;
-process.env.css_dest = dist_dir+"css/"
-process.env.img_dir = dist_dir+"imgs/"
-process.env.html_dir = dist_dir;
-
-let passValues = require('./my_dev/current_config.json');
-
 const gulp = require('gulp');
-passValues["gulp"] = gulp;
+const passValues = {
+    dist_dir,
+    css_dest:dist_dir+"css/",
+    img_dir:dist_dir+"imgs/",
+    html_dir:dist_dir,
+    is_production:true,
+    gulp
+}
 
 const common =  name => require(Paths.resolve("./my_dev", name, name.concat('.js')))(passValues); 
 const css = () => common('css');
 const pug = () => common('pug');
-
-console.info(chalk.cyan('mode: '), passValues.mode);
 
 const taskName = process.argv[2] || 'default';
 
@@ -44,3 +42,17 @@ function addTasks(tasksNames, watchTasksNames, tasksFuncs) {
 addTasks(['default', 'a', 'all'], ['wa', 'watch-all'], [css, pug]);
 addTasks(['css', 'c'], ['watch-css', 'wc'], [css]);
 addTasks(['pug', 'p'], ['watch-pug', 'wp'], [pug]);
+
+gulp.task('init-angular', async function() {
+    const update = require('update-json-file');
+    const name = Paths.basename(__dirname);
+
+    const array = ['src/css/styles.css', 'src/css/bootstrap4-compiled.css']
+
+    update('./angular.json', json => {
+        json.projects[name].architect.build.options.styles = array;
+        json.projects[name].architect.test.options.styles = array;
+
+        return json;
+    }, {indent:'  '});
+});

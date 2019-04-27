@@ -6,4 +6,6 @@
 *.jar
 
 /node_modules/
+/fontawesome/
+bootstrap4-compiled.css
 yarn.lock

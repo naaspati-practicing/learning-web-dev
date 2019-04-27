@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/todo",
-            "index": "src/index.html",
+            "index": "src/index.1.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/css/styles.css",
+              "src/css/bootstrap4-compiled.css"
             ],
             "scripts": []
           },
@@ -79,8 +80,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "srccs/css/styles.css"
-			  "srccs/css/bootstrap4-compiled.css"
+              "src/css/styles.css",
+              "src/css/bootstrap4-compiled.css"
             ],
             "scripts": [],
             "assets": [
