@@ -1,0 +1,8 @@
+circle {
+    stroke: green;
+}
+
+svg {
+    outline: 1px solid red;
+    width: 50px;
+}
