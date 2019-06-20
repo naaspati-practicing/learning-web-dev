@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Basics</title>
+    <title>TITLE GOES HERE</title>
 </head>
 
 <style>
-    body {
-        display: flex; 
-        width:100%; 
-        height:100vh; 
-        justify-content: center;
-        align-items: center;
-    }
-    canvas {
-        outline:1px solid red
-    }
+     body {
+         width: 100%;
+         height: 100vh;
+         display: flex;
+         justify-content: center;
+         align-items: center; 
+     }
+     canvas {
+         outline: 1px solid red;
+     }
 </style>
 
 <body>
-    <canvas id="canvas1" width="300" height="300"></canvas>
+    <canvas id="canvas1" width="300" height="300"> </canvas>
 
     <script>
-        /** @type {HTMLCanvasElement} */
+        /** @type {HTMLCanvasElement}  */
         const canvas = document.getElementById('canvas1');
-        /** @type {CanvasRenderingContext2D} */
         const g = canvas.getContext('2d');
+
+        g.fillRect(50, 50, 100, 100);
+
     </script>
+
 </body>
 </html>
