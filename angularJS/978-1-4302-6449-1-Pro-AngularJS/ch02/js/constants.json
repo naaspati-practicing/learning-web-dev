@@ -1,0 +1,6 @@
+{
+    "productListActiveClass": "btn-danger",
+    "productListPageCount": 3,
+    "dataUrl":  "http://localhost:5500/products",
+    "orderUrl": "http://localhost:5500/orders"
+}

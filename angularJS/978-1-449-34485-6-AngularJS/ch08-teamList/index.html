@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Team List App</title>
+    <script src="js/index.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="row-fluid">
+        <div class="span3" ng-controller="FilterCtrl">
+            <form class="form-horizontal">
+                <div class="controls-row">
+                    <label for="searchTextBox" class="control-label">Search: </label>
+                    <div class="controls">
+                        <input type="text" name="searchTextBox" id="searchTextBox"
+                            ng-model="filterService.searchText" />
+                    </div>
+                </div>
+                <div class="controls-row">
+                    <label for="sportComboBox" class="control-label">Sport: </label>
+                    <div class="controls">
+                        <select type="text" name="sportComboBox" id="sportComboBox"
+                            ng-model="filterService.activeFilters.sport">
+                            <option ng-repeat="sport in ['Basketball', 'Hockey', 'Football']">{{sport}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="controls-row">
+                    <label for="cityComboBox" class="control-label">City: </label>
+                    <div class="controls">
+                        <select type="text" name="cityComboBox" id="cityComboBox"
+                            ng-model="filterService.activeFilters.city">
+                            <option ng-repeat="city in ['Dallas', 'Los Angeles', 'Boston', 'New York']">{{city}}</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="controls-row">
+                        <label for="featuredTextBox" class="control-label">Featured: </label>
+                        <div class="controls">
+                            <input type="checkbox" name="featuredTextBox" id="featuredTextBox"
+                                ng-model="filterService.activeFilters.featured" ng-false-value=""/>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        <div ng-controller="ListCtrl">
+            <table>
+                <thead>
+                    <tr>
+                        <th ng-repeat="th in ['id', 'name', 'sport', 'city', 'featured']">{{th}}</td>
+                    </tr>
+                </thead>
+                <tbody id="teamListTable">
+                    <tr ng-repeat="team in teamList | filter:filterService.activeFilters | filter:filterService.searchText">
+                        <td>{{team.id}}</td>
+                        <td>{{team.name}}</td>
+                        <td>{{team.sport}}</td>
+                        <td>{{team.city}}</td>
+                        <td>{{team.featured}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+    "/placeorder": {
+        "templateUrl": "/views/placeOrder.html"
+    },
+    "/complete": {
+        "templateUrl": "/views/thankYou.html"
+    },
+    "/checkout": {
+        "templateUrl": "/views/checkoutSummary.html"
+    },
+    "/products": {
+        "templateUrl": "/views/productList.html"
+    },
+    "otherwise": {
+        "templateUrl": "/views/productList.html"
+    }
+}

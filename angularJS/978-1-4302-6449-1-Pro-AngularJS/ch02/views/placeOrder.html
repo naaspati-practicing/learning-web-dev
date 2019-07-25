@@ -1,0 +1,53 @@
+
+<style>
+  input.ng-invalid {
+      background-color: lightpink;
+  }
+  input.ng-valid {
+      background-color: lightgreen;
+  }
+  span.error {
+      color: red;
+      font-weight: bold;
+  }
+  
+</style>
+<h1>Checkout now</h1>
+<p>Please enter your details, and we'll ship your goods right away!</p>
+<form name="shippingForm" novalidate="novalidate">
+  <h3>Ship to</h3>
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" type="text" name="name" required="required" ng-model="data.shipping.name"/><span class="error" ng-show="shippingForm.name.$error.required">Please Enter a name</span>
+    </div>
+  <h3>Address</h3>
+    <div class="form-group">
+      <label>Street Address</label>
+      <input class="form-control" type="text" name="street" required="required" ng-model="data.shipping.street"/><span class="error" ng-show="shippingForm.street.$error.required">Please Enter a street address</span>
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input class="form-control" type="text" name="city" required="required" ng-model="data.shipping.city"/><span class="error" ng-show="shippingForm.city.$error.required">Please Enter a City</span>
+    </div>
+    <div class="form-group">
+      <label>State</label>
+      <input class="form-control" type="text" name="state" required="required" ng-model="data.shipping.state"/><span class="error" ng-show="shippingForm.state.$error.required">Please Enter a State</span>
+    </div>
+    <div class="form-group">
+      <label>Zip</label>
+      <input class="form-control" type="text" name="zip" required="required" ng-model="data.shipping.zip"/><span class="error" ng-show="shippingForm.zip.$error.required">Please Enter a zip code</span>
+    </div>
+    <div class="form-group">
+      <label>Country</label>
+      <input class="form-control" type="text" name="country" required="required" ng-model="data.shipping.country"/><span class="error" ng-show="shippingForm.country.$error.required">Please Enter a Country</span>
+    </div>
+  <h3>Options</h3>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="giftwrap" ng-model="data.shipping.giftwrap"/>Giftwrap these items
+    </label>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary" ng-disabled="shippingForm.$invalid" ng-click="sendOrder(data.shipping)">Complete Order</button>
+  </div>
+</form>
