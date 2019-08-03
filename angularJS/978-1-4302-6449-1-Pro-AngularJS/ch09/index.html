@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+</head>
+
+<body ng-app="exampleApp">
+    <div class="panel" ng-controller="dayCtrl">
+        <div class="page-header">
+            <h3>AngularJS App</h3>
+        </div>
+        <h4 highlight="2">Today is {{day || "(unknown)" | dayName}}</h4>
+        <h4>Tomorrow is {{tomorrow || "(unknown)" | dayName }}</h4>
+    </div>
+    <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+        <h3 class="panel-heading">To DO List ({{todos.length}})</h3>
+        
+        <div>There are {{todos.length}} items</div>
+        <div>
+            There are <span ng-bind="todos.length"></span> items
+        </div>
+        <div ng-bind-template="First: {{todos[0].action}}. Second: {{todos[1].action}}">
+        </div>
+        <div ng-non-bindable>
+            AngularJS uses {{ and }} characters for templates
+        </div>
+
+        Data items will go here...
+        <pre>{{todos | json}}</pre>
+    </div>
+</body>
+
+</html>

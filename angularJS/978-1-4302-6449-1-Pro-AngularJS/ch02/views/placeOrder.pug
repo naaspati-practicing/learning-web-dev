@@ -1,8 +1,8 @@
 style.
-    input.ng-invalid {
+    input.ng-invalid.ng-dirty {
         background-color: lightpink;
     }
-    input.ng-valid {
+    input.ng-valid.ng-dirty {
         background-color: lightgreen;
     }
     span.error {
@@ -17,7 +17,7 @@ form(name="shippingForm" novalidate)
     .form-group
       label=lbl
       input.form-control(type="text" name=prop, required, ng-model=`data.shipping.${prop}`)
-      span.error(ng-show=`shippingForm.${prop}.$error.required`)=errMsg
+      span.error(ng-show!=`shippingForm.${prop}.$dirty && shippingForm.${prop}.$error.required`)=errMsg
 
   h3 Ship to
   +field("Name", 'name', "Please Enter a name")

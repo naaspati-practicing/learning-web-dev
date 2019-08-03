@@ -1,0 +1,9 @@
+{
+  "name": "1783980001",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@progress/kendo-ui": "^2019.2.724"
+  }
+}

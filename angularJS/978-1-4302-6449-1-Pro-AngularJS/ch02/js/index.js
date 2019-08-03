@@ -12,4 +12,4 @@ const sportsStore = angular.module('sportsStore', ["customFilters", 'cart', ngRo
 
 registerConstants(sportsStore, require('./constants.json'));
 registerRoutes(sportsStore, require("./routing.json"));
-registerControllers(sportsStore, require("./controllers");
+registerControllers(sportsStore, require("./controllers"));

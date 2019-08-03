@@ -2,9 +2,13 @@
 setlocal
 
 if [%DIST_DIR%]==[] (
-    set DIST_DIR=ch02
+    set DIST_DIR=ch13
 )
 
 echo serving: %DIST_DIR%
 
-start cmd /k "node live-server %DIST_DIR%"
+if [%1]==[new]  (
+    start cmd /k "node ./server/live-server %DIST_DIR%"
+) else (
+  node ./server/live-server %DIST_DIR%
+)

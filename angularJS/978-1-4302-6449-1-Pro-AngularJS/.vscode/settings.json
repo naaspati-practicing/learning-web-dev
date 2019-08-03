@@ -11,10 +11,16 @@
         ".cache": true,
         "dist": true,
         ".vscode": true,
-        "_source_code":true,
-        "_toast": true
+        "_source_code": true,
+        "_toast": true,
+        "serv.cmd": true,
+        "server": true,
+        "ch02": true,
+        "ch09": true
     },
     "css.remoteStyleSheets": [
-        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css
-      ]
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    ],
+    "explorerExclude.backup": null
 }
