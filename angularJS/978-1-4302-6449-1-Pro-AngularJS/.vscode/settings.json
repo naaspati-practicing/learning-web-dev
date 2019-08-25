@@ -1,0 +1,26 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "node_modules": true,
+        "package.json": true,
+        "yarn.lock": true,
+        ".cache": true,
+        "dist": true,
+        ".vscode": true,
+        "_source_code": true,
+        "_toast": true,
+        "serv.cmd": true,
+        "server": true,
+        "ch02": true,
+        "ch09": true
+    },
+    "css.remoteStyleSheets": [
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    ],
+    "explorerExclude.backup": null
+}

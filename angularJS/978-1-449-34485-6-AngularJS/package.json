@@ -1,0 +1,12 @@
+{
+  "name": "ch01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.7.8"
+  },
+  "dependencies": {
+    "services": "^0.0.3"
+  }
+}

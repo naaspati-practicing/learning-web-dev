@@ -1,0 +1,5 @@
+{
+    "authUrl": "http://localhost:5500/users/login",
+    "ordersUrl": "http://localhost:5500/orders",
+    "productUrl": "http://localhost:5500/products/"
+}

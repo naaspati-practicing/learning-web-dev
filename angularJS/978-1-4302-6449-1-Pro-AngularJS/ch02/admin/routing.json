@@ -1,0 +1,11 @@
+{
+    "/login": {
+        "templateUrl": "/admin/views/adminLogin.html"
+    },
+    "/main": {
+        "templateUrl": "/admin/views/adminMain.html"
+    },
+    "otherwise": {
+        "redirectTo": "/login"
+    }
+}

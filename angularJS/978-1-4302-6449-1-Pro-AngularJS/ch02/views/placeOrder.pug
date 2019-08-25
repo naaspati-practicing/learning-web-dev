@@ -1,0 +1,37 @@
+style.
+    input.ng-invalid.ng-dirty {
+        background-color: lightpink;
+    }
+    input.ng-valid.ng-dirty {
+        background-color: lightgreen;
+    }
+    span.error {
+        color: red;
+        font-weight: bold;
+    }
+
+h1 Checkout now
+p Please enter your details, and we'll ship your goods right away!
+form(name="shippingForm" novalidate)
+  mixin field(lbl, prop, errMsg)
+    .form-group
+      label=lbl
+      input.form-control(type="text" name=prop, required, ng-model=`data.shipping.${prop}`)
+      span.error(ng-show!=`shippingForm.${prop}.$dirty && shippingForm.${prop}.$error.required`)=errMsg
+
+  h3 Ship to
+  +field("Name", 'name', "Please Enter a name")
+  
+  h3 Address
+  +field("Street Address", 'street', "Please Enter a street address")
+
+  each val in ['City', 'State', 'Zip', 'Country']
+    +field(val, val.toLowerCase(), `Please Enter a ${val === 'Zip' ? 'zip code' : val}`)
+  
+  h3 Options
+  .checkbox
+    label
+      input(type="checkbox", name="giftwrap", ng-model='data.shipping.giftwrap')
+      | Giftwrap these items
+
+  .text-center: button.btn.btn-primary( ng-disabled="shippingForm.$invalid", ng-click="sendOrder(data.shipping)") Complete Order
